@@ -53,7 +53,6 @@ function curlExec($url, $data = array())
 
     curl_setopt_array($ch, array(
         CURLOPT_POSTFIELDS => $data,
-        CURLOPT_USERAGENT => 'InvestorFuse-Seq/v1.0',
     ));
 
     $result = curl_exec($ch);
