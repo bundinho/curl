@@ -4,4 +4,3 @@ $url = "http://localhost/~bundinho/WAU/curl/index.php";
 buildGetUrl($url);
 $postData = !empty($_POST) ? $_POST : array();
 curlExec($url, $postData);
-

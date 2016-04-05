@@ -30,14 +30,14 @@ function execUrl($url, $data = array()){
     return $result;
 }
 
-function buildGetUrl(&$url)
+function buildGetUrl(&$url, $keysToSkip = array())
 {
     $array = array();
     if(!empty($_GET))
     {
         foreach($_GET as $key => $val)
         {
-            $array [] = $key."=".urlencode($val);
+            if(!in_array($key, $keysToSkip)) $array [] = $key."=".urlencode($val);
         }
 
         if(!empty($array))
@@ -53,6 +53,7 @@ function curlExec($url, $data = array())
 
     curl_setopt_array($ch, array(
         CURLOPT_POSTFIELDS => $data,
+        CURLOPT_USERAGENT => 'InvestorFuse-Seq/v1.0',
     ));
 
     $result = curl_exec($ch);
